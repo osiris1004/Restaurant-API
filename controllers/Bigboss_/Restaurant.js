@@ -26,12 +26,17 @@ exports.add_restaurant_post = async (req, res) => {
 
 exports.delete_restaurant_post = async (req, res) => {
   const id = req.params.id;
-    let restaurant = await Restaurant.findByIdAndDelete(req.params.id)  
-    .then(()=>{
-        res.send({"server" : "you successfully deleted"})
-       
-    .catch((err)=>console.log(err))
-
-    })
+  
+                    // return the found document if any
+                    //                              |
+                    //                              v
+  Restaurant.findByIdAndDelete(id, function (err, docs) {
+      if (err){
+          console.log(err)
+      }
+      else{
+          res.send(docs +" was deleted")
+      }
+  });
 
 }
