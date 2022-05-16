@@ -1,6 +1,6 @@
 const Admin = require("../../models/Admin_/AdminManaging");
 
-exports.add_product_post = async (req, res) => {
+exports.menu_get = async (req, res) => {
     const { restaurant_name } = req.body;
     
   

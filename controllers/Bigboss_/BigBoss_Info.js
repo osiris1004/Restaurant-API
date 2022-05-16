@@ -30,7 +30,8 @@ exports.login_post = async (req, res) => {
   req.session.email = user.email;
   req.session.path ='/bigboss'
 
-  return res.send({"server" : "you log in"})
+  return res.redirect('/BigBoss_DashBoard')
+  
  
 };
 

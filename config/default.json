@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://root:1234@nodetus.zplgp.mongodb.net/API_Node?retryWrites=true&w=majority",
+  "PORT" : 5000
+}

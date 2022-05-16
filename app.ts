@@ -1,4 +1,5 @@
-const express = require("express");
+//const express = require("express");
+import express, { Express } from "express";
 
 // it set the need cookie for the specified session 
 const session = require("express-session");
@@ -15,12 +16,15 @@ const connectDB = require("./config/db");
 const bigBossRoute = require("./routers/BigBoss");
 const adminRoute = require("./routers/Admin");
 const mongoURI = config.get("mongoURI");
+const port: String = config.get("PORT");
 
-const app = express();
+//const app = express();
+const app: Express = express();
 connectDB();
-app.listen(5000, console.log("App Running on http://localhost:5000"));
-
+//app.listen(port, console.log(`App Running on http://localhost:${port}`));
+app.listen(port, ()=>console.log(`App Running on http://localhost:${port}`));
 // parser
+//express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object
 app.use(express.json());
 app.use(cookieParser())
 
