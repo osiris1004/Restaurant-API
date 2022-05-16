@@ -17,7 +17,7 @@ const bigBossSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("User", bigBossSchema);
+module.exports = mongoose.model("Bigboss", bigBossSchema);
 
 
 
