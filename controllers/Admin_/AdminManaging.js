@@ -1,34 +1,67 @@
-const Admin = require("../../models/Admin_/AdminManaging");
+const AdminManaging = require("../../models/Admin_/AdminManaging");
 
-exports.menu_get = async (req, res) => {
-    const { restaurant_name } = req.body;
-    
-  
-    let restaurant = await Restaurant.findOne({restaurant_name});
-  
-  
-    if (restaurant) {
-      return res.send({"server" : "this restaurant exist"})
-    }
-  
-    restaurant = new Restaurant({
-      restaurant_name : restaurant_name,
-    });
-  
-    await  restaurant.save();
-    res.send({"server" : "a new restaurant was added"})
+exports.products_get = async (req, res) => {
+      const menu = new AdminManaging({
+        products:{
+          name : req.body.title,
+          price : req.body.snipper
+        }
+      })
+
+    menu.save()  
+        .then((result)=>{
+            res.send(result)})
+        .catch((err)=>console.log(err))
   };
   
   
   
   
-  exports.delete_restaurant_post = async (req, res) => {
+  exports.add_products_post = async (req, res) => {
+
+  //   const menu = new AdminManaging({
+  //     products:{
+  //       name : req.body.name,
+  //       price : req.body.price
+  //     }
+  //   })
+
+  // menu.save()  
+  //     .then((result)=>{
+  //         res.send(result)})
+  //     .catch((err)=>console.log(err))
+
+
+  const { name, price } = req.body;
+  
+  
+  let product = await AdminManaging.find({"products" : { "name": name }});
+
+  console.log(product)
+
+  if (product) {
+    return res.send({"server" : "this product exist"})
+  }
+
+  product = new AdminManaging({
+    products:{
+      name : name,
+      price : price
+    }
+  })
+
+
+  await  product.save();
+  res.send({"server" : "a new product  was added"})
+
+  };
+  
+  
+  
+  exports.delete_products_post = async (req, res) => {
     const id = req.params.id;
-    
-                      // return the found document if any
-                      //                              |
-                      //                              v
-    Restaurant.findByIdAndDelete(id, function (err, docs) {
+  
+    Admin.findByIdAndDelete(id, function (err, docs) {
         if (err){
             console.log(err)
         }

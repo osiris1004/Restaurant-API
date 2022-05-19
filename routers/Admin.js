@@ -3,8 +3,7 @@ const express = require('express')
 
 //------------------Controller---Admin---------------
 const AdminCtrl = require("../controllers/Admin_/Admin");
-const AdminRestaurantCtrl = require("../controllers/Bigboss_/Restaurant");
-const AdminAdminCtrl = require("../controllers/Bigboss_/Admin");
+const AdminManagingCtrl = require("../controllers/Admin_/AdminManaging");
 
 const adminRoute =  express.Router();
 
@@ -26,4 +25,7 @@ adminRoute.get("/dashboard", isAuth, AdminCtrl.dashboard_get);
 // logout 
 adminRoute.post("/logout", AdminCtrl.logout_post);
 
+adminRoute.post("/add_product", AdminManagingCtrl.add_products_post);
+
 module.exports = adminRoute
+
