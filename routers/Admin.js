@@ -34,6 +34,12 @@ adminRoute.post("/add_product", AdminManagingCtrl.add_products_post);
 adminRoute.delete("/product/:id", AdminManagingCtrl.delete_products);
 
 
+adminRoute.get("/menu", AdminManagingCtrl.menu_get);
+
+adminRoute.post("/add_menu", AdminManagingCtrl.add_menu_post);
+
+adminRoute.delete("/menu/:id", AdminManagingCtrl.delete_menu);
+
 
 
 module.exports = adminRoute

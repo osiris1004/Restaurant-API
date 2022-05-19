@@ -8,7 +8,7 @@ const adminManagingPromoSchema = new Schema({
 });
 // potato 2e, fries 4e, cheese 2e, beef 2e
 
-module.exports = mongoose.model("AdminManaging", adminManagingPromoSchema);
+module.exports = mongoose.model("AdminManagingPromo", adminManagingPromoSchema);
 
 
 

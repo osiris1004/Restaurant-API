@@ -9,6 +9,6 @@ const Schema = mongoose.Schema;
 });
 // potato 2e, fries 4e, cheese 2e, beef 2e
 
-module.exports = mongoose.model("AdminManaging", adminManagingMenuSchema);
+module.exports = mongoose.model("AdminManagingMenu", adminManagingMenuSchema);
 
 

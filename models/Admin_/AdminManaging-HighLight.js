@@ -8,7 +8,7 @@ const adminManagingHighlightedSchema = new Schema({
 });
 // potato 2e, fries 4e, cheese 2e, beef 2e
 
-module.exports = mongoose.model("AdminManaging", adminManagingHighlightedSchema);
+module.exports = mongoose.model("AdminManagingHightLight", adminManagingHighlightedSchema);
 
 
   

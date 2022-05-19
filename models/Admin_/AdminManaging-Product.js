@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 });
 // potato 2e, fries 4e, cheese 2e, beef 2e
 
-module.exports = mongoose.model("AdminManaging", adminManagingProductSchema);
+module.exports = mongoose.model("AdminManagingProduct", adminManagingProductSchema);
 
 
 
