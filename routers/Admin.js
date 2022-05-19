@@ -25,7 +25,16 @@ adminRoute.get("/dashboard", isAuth, AdminCtrl.dashboard_get);
 // logout 
 adminRoute.post("/logout", AdminCtrl.logout_post);
 
+
+// Admin managing process
+adminRoute.get("/product", AdminManagingCtrl.products_get);
+
 adminRoute.post("/add_product", AdminManagingCtrl.add_products_post);
+
+adminRoute.delete("/product/:id", AdminManagingCtrl.delete_products);
+
+
+
 
 module.exports = adminRoute
 

@@ -1,17 +1,12 @@
-const AdminManaging = require("../../models/Admin_/AdminManaging");
+const AdminManaging_Product = require("../../models/Admin_/AdminManaging-Product") 
+const AdminManaging_Menu = require("../../models/Admin_/AdminManaging-Menu") 
+
 
 exports.products_get = async (req, res) => {
-      const menu = new AdminManaging({
-        products:{
-          name : req.body.title,
-          price : req.body.snipper
-        }
-      })
-
-    menu.save()  
-        .then((result)=>{
-            res.send(result)})
-        .catch((err)=>console.log(err))
+      AdminManaging_Product.find({})
+      .then((result)=>{
+          res.send(result)})
+      .catch((err)=>console.log(err))
   };
   
   
@@ -19,37 +14,20 @@ exports.products_get = async (req, res) => {
   
   exports.add_products_post = async (req, res) => {
 
-  //   const menu = new AdminManaging({
-  //     products:{
-  //       name : req.body.name,
-  //       price : req.body.price
-  //     }
-  //   })
-
-  // menu.save()  
-  //     .then((result)=>{
-  //         res.send(result)})
-  //     .catch((err)=>console.log(err))
-
-
   const { name, price } = req.body;
-  
-  
-  let product = await AdminManaging.find({"products" : { "name": name }});
-
+  let product = await AdminManaging_Product.findOne({name});
   console.log(product)
 
   if (product) {
     return res.send({"server" : "this product exist"})
   }
 
-  product = new AdminManaging({
-    products:{
+  product = new AdminManaging_Product({
+    
       name : name,
       price : price
-    }
+    
   })
-
 
   await  product.save();
   res.send({"server" : "a new product  was added"})
@@ -58,16 +36,25 @@ exports.products_get = async (req, res) => {
   
   
   
-  exports.delete_products_post = async (req, res) => {
-    const id = req.params.id;
+  exports.delete_products= async (req, res) => {
+
+    AdminManaging_Product.findByIdAndDelete(req.params.id)  
+    .then(()=>{
+      res.send(" was deleted")
+    })
+       
+    .catch((err)=>console.log(err))
   
-    Admin.findByIdAndDelete(id, function (err, docs) {
-        if (err){
-            console.log(err)
-        }
-        else{
-            res.send(docs +" was deleted")
-        }
-    });
   
   }
+
+
+  /// menu 
+
+  
+
+
+
+
+  //// 
+
