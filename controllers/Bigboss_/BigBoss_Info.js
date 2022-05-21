@@ -9,6 +9,7 @@ exports.landing_page = async (req,res) =>{
 exports.login_post = async (req, res) => {
   
   const { email, password } = req.body;
+  
   //.findOne, return a row based on the passed property
   const user = await BigBoss.findOne({ email });
 
@@ -29,8 +30,9 @@ exports.login_post = async (req, res) => {
   req.session.username = user.username;
   req.session.email = user.email;
   req.session.path ='/bigboss'
+  req.session.save()
 
-  return res.redirect('/BigBoss_DashBoard')
+  return res.redirect('/bigBoss/dashboard')
   
  
 };
@@ -38,7 +40,7 @@ exports.login_post = async (req, res) => {
 
 exports.register_post = async (req, res) => {
   const { username, email, password } = req.body;
-
+  
   let user = await BigBoss.findOne({ email });
 
   if (user) {
@@ -63,14 +65,15 @@ exports.register_post = async (req, res) => {
 exports.dashboard_get = (req, res) => {
   const username = req.session.username;
   
-  return res.send({"server" : "Welcome " + username})
+  return res.send({"server" : "Welcome " + username +" you were actually redirected to your dashboard"})
 };
 
 
 
 exports.logout_post = (req, res) => {
  
-  if(!req.session.isAuth){
+  
+  if(req.session.email !=req.body.email){
     return res.send({"server" : "You can logout cuz you are not logout since your session was not identify"})
   }
   req.session.destroy((err) => {
