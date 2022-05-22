@@ -35,7 +35,7 @@ exports.delete_restaurant_post = async (req, res) => {
           console.log(err)
       }
       else{
-          res.send(docs +" was deleted")
+          res.send(docs +" has been deleted")
       }
   });
 

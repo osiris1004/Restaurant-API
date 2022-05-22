@@ -1,7 +1,7 @@
 const express = require('express')
 
 
-//------------------Controller---Admin---------------
+
 const AdminCtrl = require("../controllers/Admin_/Admin");
 const AdminManagingCtrl = require("../controllers/Admin_/AdminManaging");
 

@@ -8,10 +8,7 @@ exports.products_get = async (req, res) => {
           res.send(result)})
       .catch((err)=>console.log(err))
   };
-  
-  
-  
-  
+
   exports.add_products_post = async (req, res) => {
 
   const { name, price } = req.body;
@@ -33,9 +30,7 @@ exports.products_get = async (req, res) => {
   res.send({"server" : "a new product  was added"})
 
   };
-  
-  
-  
+
   exports.delete_products= async (req, res) => {
 
     AdminManaging_Product.findByIdAndDelete(req.params.id)  
@@ -44,14 +39,9 @@ exports.products_get = async (req, res) => {
     })
        
     .catch((err)=>console.log(err))
-  
-  
+
   }
-
-
   /// menu 
-
-  
 
 exports.menu_get = async (req, res) => {
       AdminManaging_Menu.find({})
@@ -59,8 +49,7 @@ exports.menu_get = async (req, res) => {
           res.send(result)})
       .catch((err)=>console.log(err))
   };
-  
-  
+
   exports.add_menu_post = async (req, res) => {
 
   const { name, price } = req.body;
@@ -82,9 +71,7 @@ exports.menu_get = async (req, res) => {
   res.send({"server" : "a new product  was added"})
 
   };
-  
-  
-  
+
   exports.delete_menu= async (req, res) => {
 
     AdminManaging_Menu.findByIdAndDelete(req.params.id)  
@@ -93,11 +80,5 @@ exports.menu_get = async (req, res) => {
     })
        
     .catch((err)=>console.log(err))
-  
-  
   }
-
-
-
-  //// 
-
+  ////
