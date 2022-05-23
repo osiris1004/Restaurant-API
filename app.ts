@@ -15,6 +15,7 @@ const config = require("config");
 const connectDB = require("./config/db");
 const bigBossRoute = require("./routers/BigBoss");
 const adminRoute = require("./routers/Admin");
+const customerRoute = require("./routers/customer")
 const mongoURI = config.get("mongoURI");
 const port: String = config.get("PORT");
 
@@ -52,6 +53,7 @@ app.use(
 //====================Route */
 app.use('/bigBoss',bigBossRoute)
 app.use('/admin',adminRoute)
+app.use('/customer',customerRoute)
 
 
 
