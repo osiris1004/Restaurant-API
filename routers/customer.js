@@ -12,6 +12,6 @@ const customerOrderRoute =  express.Router();
 
 customerOrderRoute.post("/order", adminCtrl.order);
 
-customerOrderRoute.get("/orderlist", adminCtrl.order);
+customerOrderRoute.get("/orderlist", adminCtrl.orderList_get);
 
 module.exports = customerOrderRoute
