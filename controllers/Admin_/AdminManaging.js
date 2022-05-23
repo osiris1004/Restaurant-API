@@ -117,3 +117,11 @@ exports.menu_get = async (req, res) => {
       console.log(err)
     })
   }
+
+
+  exports.orderList_get = async (req, res) => {
+    Order.find({})
+    .then((result)=>{
+        res.send(result)})
+    .catch((err)=>console.log(err))
+};
