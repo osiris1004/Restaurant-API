@@ -4,7 +4,7 @@ import express, { Express } from "express";
 // it set the need cookie for the specified session 
 const session = require("express-session");
 
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 
 // npm i connect-mongodb-session
 const MongoDBStore = require("connect-mongodb-session")(session);

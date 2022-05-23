@@ -6,8 +6,7 @@ const restaurantSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-  },
- 
+  }
 });
 
 module.exports = mongoose.model("Restaurant", restaurantSchema);
