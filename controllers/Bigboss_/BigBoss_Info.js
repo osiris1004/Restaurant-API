@@ -2,25 +2,19 @@ const bcrypt = require("bcryptjs");
 
 const BigBoss = require("../../models/Bigboss_/BigBoss");
 
-exports.landing_page = async (req,res) =>{
-  return res.send({"server" : "Landing page"})
-}
 
 exports.login_post = async (req, res) => {
-  
   const { email, password } = req.body;
   
   //.findOne, return a row based on the passed property
   const user = await BigBoss.findOne({ email });
-
   if (!user) {
-    return res.send({"server" : "Invalid Credentials"})
+    return res.send({"Server" : "Invalid Credentials"})
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
-
   if (!isMatch) {
-    return res.send({"server" : "Invalid Credentials"})
+    return res.send({"Server" : "Invalid Credentials"})
   }
   //req.session: use To store or access session data
 
@@ -32,7 +26,7 @@ exports.login_post = async (req, res) => {
   req.session.path ='/bigboss'
   req.session.save()
 
-  return res.redirect('/bigBoss/dashboard')
+  return res.send({"Srever" : "welcome "+ req.session.username + " !! we are happy to see you"})
   
  
 };
@@ -47,7 +41,7 @@ exports.register_post = async (req, res) => {
     //console.log(req.session)
     //req.session.error = "User already exists";
     //return res.redirect("/register");
-    return res.send({"server" : "User already exists"})
+    return res.send({"Server" : "User already exist"})
   }
 
   const hasdPsw = await bcrypt.hash(password, 12);
@@ -58,28 +52,27 @@ exports.register_post = async (req, res) => {
     password: hasdPsw,
   });
 
-  await user.save();
-  res.send({"server" : "your info are successfully save. you can sign in"})
+  await user.save().then( result => res.send([{"Server" : "your registration was successful. You can login to your account"},
+  {"DB" : result}]))
+  
 };
 
 exports.dashboard_get = (req, res) => {
   const username = req.session.username;
-  
-  return res.send({"server" : "Welcome " + username +" you were actually redirected to your dashboard"})
+  return res.send({"Server" : "Welcome " + username +" you are in your dashboard"})
 };
 
 
 
 exports.logout_post = (req, res) => {
- 
-  
+
   if(req.session.email !=req.body.email){
-    return res.send({"server" : "You can logout cuz you are not logout since your session was not identify"})
+    return res.send({"Server" : "You can logout cuz you are not login since your session was not identify"})
   }
   req.session.destroy((err) => {
     if (err) throw err;
     //res.redirect("/login");
-    return res.send({"server" : "You logout"})
+    return res.send({"Server" : "You logout"})
 
   
   });

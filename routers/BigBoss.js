@@ -11,7 +11,7 @@ const bigBossRoute =  express.Router();
 // auth middleware
 const isAuth = require("../middleware/is-auth");
 
-bigBossRoute.get("/", BigBossCtrl.landing_page);
+
 
 // Login 
 bigBossRoute.post("/login", BigBossCtrl.login_post);

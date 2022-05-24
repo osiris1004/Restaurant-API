@@ -1,12 +1,13 @@
 const bcrypt = require("bcryptjs");
 
 const Admin = require("../../models/Bigboss_/Admin");
+//import Admin  from "../../models/Bigboss_/Admin";
 
 
 
 exports.login_post = async (req, res) => {
   
-  const { email, password } = req.body;
+  const { email , password } = req.body;
   
   //.findOne, return a row based on the passed property
   const user = await Admin.findOne({ email });
@@ -27,10 +28,6 @@ exports.login_post = async (req, res) => {
   req.session.save()
 
   console.log("am normally done")
-  
-
-
-  
   //console.log( "done")
   res.redirect("/admin/dashboard");
  
