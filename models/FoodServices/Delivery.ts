@@ -29,4 +29,4 @@ export interface deliveryProps{
     isDelivered : boolean
 }
 export type DeliveryDocument = deliveryProps & Document ;
-export const DeliveryModel : Model<DeliveryDocument> = mongoose.model<DeliveryDocument>("Delivery",deliverySchema)
+export const DeliveryModel : Model<DeliveryDocument> = mongoose.model<DeliveryDocument>("DeliveryModel",deliverySchema)

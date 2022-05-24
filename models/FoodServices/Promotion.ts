@@ -25,4 +25,4 @@ export interface promoProps {
     reduction : number
 }
 export type PromoDocument = promoProps & Document ;
-export const PromoModel : Model<PromoDocument> = mongoose.model<PromoDocument>("Promo",promoSchema)
+export const PromoModel : Model<PromoDocument> = mongoose.model<PromoDocument>("PromoModel",promoSchema)

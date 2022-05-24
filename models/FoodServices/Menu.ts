@@ -22,5 +22,5 @@ export interface menuProps{
     price : number
 }
 export type MenuDocument = menuProps & Document ;
-export const MenuModel : Model<MenuDocument> = mongoose.model<MenuDocument>("Menu",menuSchema)
+export const MenuModel : Model<MenuDocument> = mongoose.model<MenuDocument>("MenuModel",menuSchema)
 

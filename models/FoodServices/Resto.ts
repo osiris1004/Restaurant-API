@@ -47,4 +47,4 @@ export interface restoProps {
     putToFront : productProps[]
 }
 export type RestoDocument = restoProps & Document ;
-export const RestoModel : Model<RestoDocument> = mongoose.model<RestoDocument>("Resto",restoSchema)
+export const RestoModel : Model<RestoDocument> = mongoose.model<RestoDocument>("RestoModel",restoSchema)

@@ -17,5 +17,5 @@ export interface productProps {
     price : number
 }
 export type ProductDocument = productProps & Document ;
-export const ProductModel : Model<ProductDocument> = mongoose.model<ProductDocument>("Product",productSchema)
+export const ProductModel : Model<ProductDocument> = mongoose.model<ProductDocument>("ProductModel",productSchema)
 

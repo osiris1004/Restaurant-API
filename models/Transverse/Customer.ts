@@ -27,4 +27,4 @@ export interface customerProps{
   phone : number
 }
 export type CustomerDocument = customerProps & Document ;
-export const CustomerModel : Model<CustomerDocument> = mongoose.model<CustomerDocument>("Customer",customerSchema)
+export const CustomerModel : Model<CustomerDocument> = mongoose.model<CustomerDocument>("CustomerModel",customerSchema)

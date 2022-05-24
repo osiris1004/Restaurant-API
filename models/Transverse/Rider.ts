@@ -25,4 +25,4 @@ export interface riderProps{
     phone : number
 }
 export type RiderDocument = riderProps & Document ;
-export const RiderModel : Model<RiderDocument> = mongoose.model<RiderDocument>("Rider",riderSchema)
+export const RiderModel : Model<RiderDocument> = mongoose.model<RiderDocument>("RiderModel",riderSchema)

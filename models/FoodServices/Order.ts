@@ -1,4 +1,4 @@
-import moogose, {Schema,Document,Model} from "mongoose"
+import  {Schema,Document,Model} from "mongoose"
 import {productProps} from "./Product";
 import mongoose from "mongoose";
 import {menuProps} from "./Menu";
@@ -53,4 +53,4 @@ export interface orderProps{
     wantDelivery : boolean,
 }
 export type OrderDocument = orderProps & Document ;
-export const OrderModel : Model<OrderDocument> = mongoose.model<OrderDocument>("Order",orderSchema)
+export const OrderModel : Model<OrderDocument> = mongoose.model<OrderDocument>("OrderModel",orderSchema)

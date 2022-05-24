@@ -16,4 +16,4 @@ export interface preparatorProps{
     commands : orderProps[] ,
 }
 export type PreparatorDocument = preparatorProps & Document ;
-export const PreparatorModel : Model<PreparatorDocument> = mongoose.model<PreparatorDocument>("Preparator",preparatorSchema)
+export const PreparatorModel : Model<PreparatorDocument> = mongoose.model<PreparatorDocument>("PreparatorModel",preparatorSchema)
