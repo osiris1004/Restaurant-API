@@ -5,6 +5,7 @@ const express = require('express')
 const AdminCtrl = require("../controllers/Admin_/Admin");
 const AdminManagingCtrl = require("../controllers/Admin_/AdminManaging");
 
+
 const adminRoute =  express.Router();
 
 // auth middleware
@@ -39,6 +40,9 @@ adminRoute.get("/menu", AdminManagingCtrl.menu_get);
 adminRoute.post("/add_menu", AdminManagingCtrl.add_menu_post);
 
 adminRoute.delete("/menu/:id", AdminManagingCtrl.delete_menu);
+
+// Admin ordering management 
+adminRoute.post("/add_order", AdminManagingCtrl.order);
 
 
 

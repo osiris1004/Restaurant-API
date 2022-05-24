@@ -15,6 +15,7 @@ const config = require("config");
 const connectDB = require("./config/db");
 const bigBossRoute = require("./routers/BigBoss");
 const adminRoute = require("./routers/Admin");
+const customerRoute = require("./routers/customer");
 const mongoURI = config.get("mongoURI");
 const port = config.get("PORT");
 //const app = express();
@@ -23,6 +24,7 @@ connectDB();
 //app.listen(port, console.log(`App Running on http://localhost:${port}`));
 app.listen(port, () => console.log(`App Running on http://localhost:${port}`));
 // parser
+//express.json() is a method inbuilt in express to recognize the incoming Request Object as a JSON Object
 app.use(express_1.default.json());
 app.use(cookieParser());
 const store = new MongoDBStore({
@@ -41,3 +43,4 @@ app.use(session({
 //====================Route */
 app.use('/bigBoss', bigBossRoute);
 app.use('/admin', adminRoute);
+app.use('/customer', customerRoute);

@@ -1,6 +1,6 @@
 const AdminManaging_Product = require("../../models/Admin_/AdminManaging-Product") 
 const AdminManaging_Menu = require("../../models/Admin_/AdminManaging-Menu") 
-
+const Order = require("../../models/Admin_/Order");
 
 exports.products_get = async (req, res) => {
       AdminManaging_Product.find({})
@@ -101,3 +101,27 @@ exports.menu_get = async (req, res) => {
 
   //// 
 
+
+  exports.order = async (req, res) =>{
+
+    console.log("test you are in router") 
+    const order = new Order(
+      {
+        name: req.body.nameID,
+        quantity: req.body.quantity
+        
+      }
+    ).save().then( result =>{
+      console.log(result)
+    }).catch( err =>{
+      console.log(err)
+    })
+  }
+
+
+  exports.orderList_get = async (req, res) => {
+    Order.find({})
+    .then((result)=>{
+        res.send(result)})
+    .catch((err)=>console.log(err))
+};
