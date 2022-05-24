@@ -17,7 +17,7 @@ const customerSchema = new Schema({
     phone : {
         type : Schema.Types.Number,
         required : true,
-        dafeult : null
+        default : 0 ,
     }
 })
 export interface customerProps{
