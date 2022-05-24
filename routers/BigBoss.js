@@ -28,11 +28,13 @@ bigBossRoute.get("/dashboard", isAuth, BigBossCtrl.dashboard_get);
 // Dashboard/ add restaurant and delete restaurant
 bigBossRoute.post("/dashboard/add_restaurant", isAuth, BigBossRestaurantCtrl.add_restaurant_post);
 bigBossRoute.delete("/dashboard/delete_restaurant/:id", isAuth, BigBossRestaurantCtrl.delete_restaurant_post);
+bigBossRoute.get("/dashboard/get_restaurant", isAuth, BigBossRestaurantCtrl.get_restaurant_post);
 
 //*************************************** */
 // Dashboard/ add Admin and delete Admin
 bigBossRoute.post("/dashboard/add_admin", isAuth, BigBossAdminCtrl.add_admin_post);
 bigBossRoute.delete("/dashboard/delete_admin/:id", isAuth, BigBossAdminCtrl.delete_admin_post);
+bigBossRoute.get("/dashboard/get_admin", isAuth, BigBossAdminCtrl.get_admin_post);
 //************************ */
 // logout 
 bigBossRoute.post("/logout", BigBossCtrl.logout_post);

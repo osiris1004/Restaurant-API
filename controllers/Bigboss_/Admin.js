@@ -3,6 +3,8 @@ const { couldStartTrivia } = require("typescript");
 
 const Admin = require("../../models/Bigboss_/Admin");
 const mongoose = require("mongoose");
+const AdminManaging_Menu = require("../../models/Admin_/AdminManaging-Menu");
+const Restaurant = require("../../models/Bigboss_/Restaurant");
 
 exports.add_admin_post = async (req, res) => {
   const {email, password,restaurant } = req.body;
@@ -26,18 +28,27 @@ exports.add_admin_post = async (req, res) => {
 };
 
 
+exports.get_admin_post = async (req, res) => {
+    Admin.find({})
+        .then((result)=>{
+            res.send(result)})
+        .catch((err)=>console.log(err))
+};
 
 exports.delete_admin_post = async (req, res) => {
-  const id = req.params.id;
+    const id = req.params.id;
 
-  Admin.findByIdAndDelete(id, function (err, docs) {
-      if (err){
-          console.log(err)
-      }
-      else{
-          res.send(docs +" was deleted")
-      }
-  });
+    // return the found document if any
+    //                              |
+    //                              v
+    Restaurant.findByIdAndDelete(id, function (err, docs) {
+        if (err){
+            console.log(err)
+        }
+        else{
+            res.send(docs +" was deleted")
+        }
+    });
 
 }
 

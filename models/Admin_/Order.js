@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
       
       // which product was order based on id
                                                 // connect schema with my product
-    name: {type: mongoose.Schema.Types.ObjectId, ref :'AdminManagingProduct'},
+    id: {type: mongoose.Schema.Types.ObjectId, ref :'AdminManagingProduct'},
+    name: {type: String,required: true},
     quantity : {type: Number, default: 1}
 });
 

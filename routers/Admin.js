@@ -41,10 +41,12 @@ adminRoute.post("/add_menu", AdminManagingCtrl.add_menu_post);
 
 adminRoute.delete("/menu/:id", AdminManagingCtrl.delete_menu);
 
-// Admin ordering management 
+// Admin ordering management
+adminRoute.post("/order", AdminManagingCtrl.orderList_get);
+
 adminRoute.post("/add_order", AdminManagingCtrl.order);
 
+adminRoute.delete("/delete_order/:id", AdminManagingCtrl.delete_order);
 
 
 module.exports = adminRoute
-

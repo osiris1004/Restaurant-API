@@ -68,7 +68,7 @@ exports.menu_get = async (req, res) => {
   console.log(product)
 
   if (product) {
-    return res.send({"server" : "this product exist"})
+    return res.send({"server" : "this menu exist"})
   }
 
   product = new AdminManaging_Menu({
@@ -79,7 +79,7 @@ exports.menu_get = async (req, res) => {
   })
 
   await  product.save();
-  res.send({"server" : "a new product  was added"})
+  res.send({"server" : "a new menu  was added"})
 
   };
   
@@ -89,7 +89,7 @@ exports.menu_get = async (req, res) => {
 
     AdminManaging_Menu.findByIdAndDelete(req.params.id)  
     .then(()=>{
-      res.send({"server" : "product successfully deleted"})
+      res.send({"server" : "Menu successfully deleted"})
     })
        
     .catch((err)=>console.log(err))
@@ -107,9 +107,9 @@ exports.menu_get = async (req, res) => {
     console.log("test you are in router") 
     const order = new Order(
       {
-        name: req.body.nameID,
-        quantity: req.body.quantity
-        
+        id: req.body.nameID,
+        quantity: req.body.quantity,
+        name : req.body.name
       }
     ).save().then( result =>{
       res.send(result)
@@ -124,4 +124,13 @@ exports.menu_get = async (req, res) => {
     .then((result)=>{
         res.send(result)})
     .catch((err)=>res.send(err))
-};
+  };
+
+  exports.delete_order= async (req, res) => {
+    Order.findByIdAndDelete(req.params.id)
+        .then(()=>{
+            res.send({"server" : "Order has been successfully deleted"})
+        })
+        .catch((err)=>console.log(err))
+  };
+

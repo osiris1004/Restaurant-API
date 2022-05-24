@@ -44,7 +44,7 @@ exports.dashboard_get = (req, res) => {
 exports.logout_post = (req, res) => {
  
   
-  if(req.session.email !=req.body.email){
+  if(req.session.email !== req.body.email){
     return res.send({"server" : "You can logout cuz you are not logout since your session was not identify"})
   }
   req.session.destroy((err) => {

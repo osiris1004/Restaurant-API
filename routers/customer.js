@@ -14,4 +14,6 @@ customerOrderRoute.post("/order", adminCtrl.order);
 
 customerOrderRoute.get("/orderlist", adminCtrl.orderList_get);
 
+customerOrderRoute.delete("/delete_order", adminCtrl.delete_order);
+
 module.exports = customerOrderRoute
